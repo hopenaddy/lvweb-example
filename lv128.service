@@ -1,0 +1,11 @@
+[Unit]
+Description=LVWEB-128 Example
+
+[Service]
+User=lv128
+Group=lv128
+Environment="APPDIR=/opt/lv128/example/"
+ExecStart=/bin/bash -c "source $APPDIR/bin/activate ; python $APPDIR/example.py"
+
+[Install]
+WantedBy=multi-user.target
