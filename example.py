@@ -8,6 +8,7 @@ import argparse
 parser = argparse.ArgumentParser(description='LVWEB-128 Example daemon')
 parser.add_argument('-d', action='store_true', dest='debug', help='Write logs to stdout')
 parser.add_argument('-l', action='store', dest='logfile', help='Write logfile ')
+parser.add_argument('-p', action='store', dest='port', help='Port number', type=int)
 args = parser.parse_args()
 
 if args.debug:
@@ -21,6 +22,7 @@ class Hello(resource.Resource):
     def render_GET(self, request):
         return "Hello LVWEB-128!"
 
+port = args.port or 8888
 site = server.Site(Hello())
-reactor.listenTCP(8888, site)
+reactor.listenTCP(port, site)
 reactor.run()
