@@ -9,6 +9,7 @@ def deploy():
         venv.create()
     venv.install()
     put("example.py", ROOT)
-    put("lv128.service", "/etc/systemd/user/")
+    put("lv128.service", ROOT)
+    sudo("mv lv128.service /etc/systemd/user/")
     sudo("systemctl enable lv128")
     sudo("systemctl restart lv128")
