@@ -1,7 +1,7 @@
 from fabric.api import put, run
 from fabvenv import Venv
 
-ROOT = "/opt/lv128/example"
+ROOT = "/opt/lv128/ExampleComponent/"
 
 def deploy():
     venv = Venv(ROOT, "requirements.txt")
