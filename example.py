@@ -1,6 +1,7 @@
 from twisted.internet import reactor
 from twisted.web import server, resource
 from twisted.python import log
+from twisted.python.logfile import DailyLogFile
 import sys
 import argparse
 
@@ -13,7 +14,7 @@ if args.debug:
     log.startLogging(sys.stdout)
 
 if args.logfile:
-    log.startLogging(open(args.logfile,"w"))
+    log.startLogging(DailyLogFile.fromFullPath(args.logfile))
 
 class Hello(resource.Resource):
     isLeaf = True
