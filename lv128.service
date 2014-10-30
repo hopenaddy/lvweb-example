@@ -4,8 +4,8 @@ Description=LVWEB-128 Example
 [Service]
 User=deploy
 Group=deploy
-Environment="APPDIR=/opt/lv128/example/"
-ExecStart=/bin/bash -c "source $APPDIR/bin/activate ; python $APPDIR/example.py"
+Environment="APPDIR=/opt/lv128/ExampleComponent/"
+ExecStart=/bin/bash -c "source $APPDIR/bin/activate ; python $APPDIR/example.py -l $APPDIR/../log/ExampleComponent.log"
 
 [Install]
 WantedBy=multi-user.target
